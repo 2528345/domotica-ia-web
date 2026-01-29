@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useNotification } from '@/hooks/useNotification';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const { success, info } = useNotification();
 
   const navItems = [
     { label: 'Inicio', href: '#' },
@@ -38,10 +40,17 @@ export default function Header() {
 
         {/* Desktop CTA */}
         <div className="hidden md:flex gap-3">
-          <Button variant="outline" className="border-accent text-accent hover:bg-accent/10">
+          <Button 
+            variant="outline" 
+            className="border-accent text-accent hover:bg-accent/10"
+            onClick={() => info('Sesión', 'Redirigiendo a login...')}
+          >
             Iniciar Sesión
           </Button>
-          <Button className="bg-gradient-to-r from-cyan-500 to-green-500 hover:from-cyan-600 hover:to-green-600 text-background">
+          <Button 
+            className="bg-gradient-to-r from-cyan-500 to-green-500 hover:from-cyan-600 hover:to-green-600 text-background"
+            onClick={() => success('Demo Solicitada', 'Nos pondremos en contacto pronto')}
+          >
             Solicitar Demo
           </Button>
         </div>
@@ -74,10 +83,17 @@ export default function Header() {
               </a>
             ))}
             <div className="flex gap-3 pt-2">
-              <Button variant="outline" className="flex-1 border-accent text-accent">
+              <Button 
+                variant="outline" 
+                className="flex-1 border-accent text-accent"
+                onClick={() => info('Sesión', 'Redirigiendo a login...')}
+              >
                 Iniciar Sesión
               </Button>
-              <Button className="flex-1 bg-gradient-to-r from-cyan-500 to-green-500 text-background">
+              <Button 
+                className="flex-1 bg-gradient-to-r from-cyan-500 to-green-500 text-background"
+                onClick={() => success('Demo Solicitada', 'Nos pondremos en contacto pronto')}
+              >
                 Demo
               </Button>
             </div>

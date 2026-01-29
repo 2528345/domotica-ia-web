@@ -1,7 +1,9 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Zap } from 'lucide-react';
+import { useNotification } from '@/hooks/useNotification';
 
 export default function HeroSection() {
+  const { success, info } = useNotification();
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       {/* Fondo con gradiente y patrón */}
@@ -40,11 +42,18 @@ export default function HeroSection() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button className="bg-gradient-to-r from-cyan-500 to-green-500 hover:from-cyan-600 hover:to-green-600 text-background font-semibold px-8 py-6 text-base">
+            <Button 
+              className="bg-gradient-to-r from-cyan-500 to-green-500 hover:from-cyan-600 hover:to-green-600 text-background font-semibold px-8 py-6 text-base"
+              onClick={() => success('Bienvenido', 'Iniciando proceso de configuracion...')}
+            >
               Comenzar Ahora
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
-            <Button variant="outline" className="border-accent text-accent hover:bg-accent/10 px-8 py-6 text-base">
+            <Button 
+              variant="outline" 
+              className="border-accent text-accent hover:bg-accent/10 px-8 py-6 text-base"
+              onClick={() => info('Demo', 'Cargando demostracion en vivo...')}
+            >
               Ver Demo
             </Button>
           </div>

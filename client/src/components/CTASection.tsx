@@ -1,7 +1,18 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import { useNotification } from '@/hooks/useNotification';
 
 export default function CTASection() {
+  const { success, info } = useNotification();
+
+  const handleDemoRequest = () => {
+    success('Demo Solicitada', 'Te enviaremos un enlace de acceso pronto');
+  };
+
+  const handleContactSales = () => {
+    info('Contacto', 'Conectando con nuestro equipo de ventas...');
+  };
+
   return (
     <section className="py-24 relative overflow-hidden">
       {/* Fondo decorativo */}
@@ -31,11 +42,18 @@ export default function CTASection() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-            <Button className="bg-gradient-to-r from-cyan-500 to-green-500 hover:from-cyan-600 hover:to-green-600 text-background font-semibold px-8 py-6 text-base">
+            <Button 
+              className="bg-gradient-to-r from-cyan-500 to-green-500 hover:from-cyan-600 hover:to-green-600 text-background font-semibold px-8 py-6 text-base"
+              onClick={handleDemoRequest}
+            >
               Solicitar Demo Gratuita
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
-            <Button variant="outline" className="border-accent text-accent hover:bg-accent/10 px-8 py-6 text-base">
+            <Button 
+              variant="outline" 
+              className="border-accent text-accent hover:bg-accent/10 px-8 py-6 text-base"
+              onClick={handleContactSales}
+            >
               Contactar Ventas
             </Button>
           </div>
