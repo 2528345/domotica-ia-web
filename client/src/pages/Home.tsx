@@ -1,25 +1,32 @@
-import { Button } from "@/components/ui/button";
-import { Loader2 } from "lucide-react";
-import { Streamdown } from 'streamdown';
+import Header from '@/components/Header';
+import HeroSection from '@/components/HeroSection';
+import ServicesSection from '@/components/ServicesSection';
+import FeaturesSection from '@/components/FeaturesSection';
+import SecuritySection from '@/components/SecuritySection';
+import CTASection from '@/components/CTASection';
+import Footer from '@/components/Footer';
 
 /**
- * All content in this page are only for example, replace with your own feature implementation
- * When building pages, remember your instructions in Frontend Best Practices, Design Guide and Common Pitfalls
+ * Página principal - Domótica Inteligente con IA Offline
+ * 
+ * Diseño: Futurismo Minimalista Tecnológico
+ * - Paleta: Negro profundo (#0A0E27), Azul oscuro (#1A2A4E)
+ * - Acentos: Cian brillante (#00D9FF), Verde neón (#00FF88)
+ * - Tipografía: Poppins (títulos), Inter (cuerpo)
+ * - Animaciones: Transiciones suaves, efectos de hover energéticos
  */
 export default function Home() {
-  // If theme is switchable in App.tsx, we can implement theme toggling like this:
-  // const { theme, toggleTheme } = useTheme();
-
   return (
-    <div className="min-h-screen flex flex-col">
-      <main>
-        {/* Example: lucide-react for icons */}
-        <Loader2 className="animate-spin" />
-        Example Page
-        {/* Example: Streamdown for markdown rendering */}
-        <Streamdown>Any **markdown** content</Streamdown>
-        <Button variant="default">Example Button</Button>
+    <div className="min-h-screen flex flex-col bg-background text-foreground">
+      <Header />
+      <main className="flex-1">
+        <HeroSection />
+        <ServicesSection />
+        <FeaturesSection />
+        <SecuritySection />
+        <CTASection />
       </main>
+      <Footer />
     </div>
   );
 }
