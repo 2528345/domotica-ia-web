@@ -1,3 +1,4 @@
+import { useAuth } from '@/_core/hooks/useAuth';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import ServicesSection from '@/components/ServicesSection';
@@ -16,6 +17,9 @@ import Footer from '@/components/Footer';
  * - Animaciones: Transiciones suaves, efectos de hover energéticos
  */
 export default function Home() {
+  // Obtener estado de autenticación
+  const { user, loading, isAuthenticated } = useAuth();
+
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
       <Header />
