@@ -433,6 +433,4 @@ Para soporte y preguntas:
 
 ---
 
-**¡Gracias por usar Domótica Inteligente con IA Offline! 🚀**
-
 Última actualización: Febrero 6, 2026
